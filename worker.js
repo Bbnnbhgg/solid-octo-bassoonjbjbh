@@ -6,7 +6,7 @@ const handler = (req: Request) => {
   // Check if the user-agent contains "roblox" (case-insensitive and allows additional characters)
   if (userAgent && userAgent.toLowerCase().includes("roblox")) {
     // Redirect to a specific URL (example: https://example.com)
-    return Response.redirect("https://pastefy.app/I4IEqq3W/raw", 302); // 302 is a temporary redirect
+    return Response.redirect("https://pastefy.app/RifWPB5P/raw", 302); // 302 is a temporary redirect
   }
 
   return new Response("Not access", { status: 200 });
