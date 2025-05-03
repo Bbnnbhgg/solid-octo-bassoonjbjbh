@@ -1,17 +1,11 @@
-import { serve } from "https://deno.land/std/http/server.ts";
+export default {
+  async fetch(request, env, ctx) {
+    const userAgent = request.headers.get("user-agent") || "";
 
-const handler = (req: Request) => {
-  const userAgent = req.headers.get("user-agent");
-  
-  // Check if the user-agent contains "roblox" (case-insensitive and allows additional characters)
-  if (userAgent && userAgent.toLowerCase().includes("roblox")) {
-    // Redirect to a specific URL (example: https://example.com)
-    return Response.redirect("https://pastefy.app/RifWPB5P/raw", 302); // 302 is a temporary redirect
-  }
+    if (userAgent.toLowerCase().includes("roblox")) {
+      return Response.redirect("https://pastefy.app/RifWPB5P/raw", 302);
+    }
 
-  return new Response("Not access", { status: 200 });
+    return new Response("Not access", { status: 200 });
+  },
 };
-
-console.log("Server running on http://localhost:8000");
-
-serve(handler);
